@@ -1,0 +1,25 @@
+  <% unless @product_properties.empty? %> 
+    <div class="prodMidblock" id="prodMDWrap" style="padding:0 0 15px 0">
+      <div>
+        <h3>More Details&nbsp;
+          <span class="fabShopSprite moreIconI dIB"></span>         
+        </h3>
+      </div>
+      <div class="desc">
+        <p>Kit includes 4 growth gel greenhouse containers, 1 inflatable greenhouse, 1 air pump, 4 different types of seeds in the capsules (Basil, Tomato, Cucumber, Rucola Arugula), 4 soil peat tables (doubles its size with water), four miniature pots, 1flower press, 1 small extracting stick, 1 lens, 1 botanic book. Globus America&rsquo;s products are tested for safety for children aged over 6.</p>
+      </div>
+      <div class="clear"></div>
+      <ul class="tblList" id="tblListTgl">
+        <% css_class = "noBorderTop" %>
+        <% @product_properties.each do |product_property| %>
+          <li class=<%= css_class %>>
+            <span class="full">
+              <label><%= product_property.property.presentation %> </label>
+              <span><%= product_property.value %></span>
+            </span>
+          </li>
+          <% css_class = "" %>
+        <% end %>           
+      </ul>
+    </div>
+  <% end %>

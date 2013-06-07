@@ -1,0 +1,5 @@
+<% if image %> 
+  <%= image_tag image.attachment.url(:product), :itemprop => "image" ,:width=>1360,:height=>360%>
+<% else %> 
+  <%= product_image(@product, :itemprop => "image",:height=>1360,:width=>1360) %>
+<% end %>

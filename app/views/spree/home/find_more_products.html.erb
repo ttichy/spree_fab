@@ -1,0 +1,178 @@
+  <% @products.each do |product| %>
+    <% if Spree::Config[:show_zero_stock_products] || product.has_stock? %>
+      <li id="product_<%= product.id %>" class="columns three <%= cycle("alpha", "secondary", "", "omega secondary") %>"  data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
+        <span data-action="fullView" class="full_screen_icon fabShopSpriteNew"></span>
+         <div class="prodImgBlock filler" style="cursor:pointer">
+      <%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url' %>
+      <span style="display:none;"><%= product.images.first.attachment.url(:original)%></span>
+    </div>
+
+     <div class="newSocialCt">
+      <div class="newSocialToolBar">
+        <span class="newSocialTool faveIt" style="left: 10px;">
+          <span class="loader" style="position: relative;top: 4px;display: none;">
+            <img src="//dnok91peocsw3.cloudfront.net/relaunch/ajax-loader-white.gif">
+          </span>
+          <span class="imgFabCount" style="display: inline-block;">
+            <a rel="async" title="FAVE this product" class="showLightBox">
+              <span class="imgFabBig fabShopSprite"></span>
+            </a>
+            <span class="fabIcon">114</span>
+          </span>
+        </span>
+        <span class="loaderCt newSocialTool"></span>
+          <span class="newSocialTool">
+            <fb:like fb-xfbml-state="rendered" data-fab-prodid="177421" class="overflowHidden fb_edge_widget_with_comment fb_iframe_widget" href="http://fab.com/sale/18439/product/177421/?fref=fb-like" send="false" layout="button_count" show-faces="false" action="like" colorscheme="light" scrolling="no" frameborder="0" allowtransparency="true"><span style="height: 21px; width: 73px;"><iframe src="http://www.facebook.com/plugins/like.php?api_key=105523866144321&amp;locale=en_US&amp;sdk=joey&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D24%23cb%3Df2c7afc8295588%26origin%3Dhttp%253A%252F%252Ffab.com%252Ffd15940a6d53%26domain%3Dfab.com%26relation%3Dparent.parent&amp;href=http%3A%2F%2Ffab.com%2Fsale%2F18439%2Fproduct%2F177421%2F%3Ffref%3Dfb-like&amp;node_type=link&amp;width=90&amp;layout=button_count&amp;colorscheme=light&amp;action=like&amp;show_faces=false&amp;send=false&amp;extended_social_context=false" class="fb_ltr" title="Like this content on Facebook." style="border: medium none; overflow: hidden; height: 21px; width: 73px;" name="f35257e29f59508" id="f3d74924667e112" scrolling="no"></iframe></span></fb:like>
+          </span>
+          <span class="newSocialTool pinItTool">
+            <a href="http://pinterest.com/pin/create/button/?url=http://fab.com/sale/18439/product/177421/?fref=pinterest&amp;media=product_image&amp;description=Foxy Wall Art Birch, $45, now featured on Fab." class="pin-it-button" count-layout="horizontal">
+              <img src="//assets.pinterest.com/images/PinExt.png" title="Pin It" border="0">
+            </a>
+            <span class="pinItPhantom" onclick="pinterestShare({productId : 177421,saleId: 18439}); window.open('http://pinterest.com/pin/create/button/?url=http://fab.com/sale/18439/product/177421/?fref=pinterest&amp;media=//dnok91peocsw3.cloudfront.net/product/177421-300x300-1352754416-primary.png&amp;description=Foxy Wall Art Birch, $45, now featured on Fab.', 'signin', 'height=300,width=665'); return false;" title="Pin it on Pinterest"></span>
+          </span>
+      </div>
+    </div>
+
+    <div class="productCt" style="height:105px;">
+      <div class="productDet shopProductDet">
+        <h4><%= product.name%><br>
+          <div style="margin-top: 3px;"> 
+            <span style="font-weight: lighter">by</span> Vinca
+          </div>
+        </h4>
+          <p class="fabPrice"><%=product.display_price %><span class="fabShopSprite fabTagSml"></span>fab</p>
+          <p class="retailPrice">$60 retail price</p>
+
+      <a class="buyIt floatRight borderR12 fabGrad"><span class="fabShopSprite cartIcon"></span>Buy It</a></div>
+      <div class="sizeSelector" style="height: 77px;">
+        <div class="selectCt">
+          <span style="font-size: 12px; color: #666; margin-right: 7px;">Size</span>
+          <select></select>
+        </div>
+        <div class="cartWrap">
+          <span class="fabSubmitBtn addToCart fabGrad borderR15 noShadow floatLeft"><span class="fabShopSprite cart_icon marginRight5"></span>Add to Cart</span>
+          <span class="greyFabButton confrmB round15 canbutFromFeed cancel" style="padding: 6px 15px;">Cancel</span>
+        </div>
+      </div>
+    </div>
+
+      <div style="display: none;" id="fsvInfo" class="overLayFullScrn round7">
+  <span class="fabShopSprite fullScrnBanerCross" alt="cross" title="Close "></span>
+  <h2 class="colorFFF font16">New! Browse Fab In Fullscreen.</h2>
+  <h3 class="font16">Click on the <span class="fScrIconSale fabShopSpriteNew"></span> icon in the top right corner of the product image to launch fullscreen mode.</h3>
+</div>
+
+<!-- popup html -->
+
+<div class="modal fpv" id="productNavModal" style="opacity: 1; visibility: hidden; margin-left: -501px; top: 10px !important;">
+  <div style="background-color: #FFFFFF;min-height: 267px;padding: 0;width: 1002px;" class="modalContent" id="productNavContent">
+    <div class="poductNavStatusEdge hide" id="poductNavStatusEdge" style="display: none;">
+      <div class="poductNavStatusEdgeText"></div>
+      <div class="poductNavStatusEdgeTriangle"></div>
+    </div>
+    <div class="productNavImgWrap" id="productNavImgWrap">
+      <div class="productNavHeader vAlignBlk">
+        <h1 class="productNavProductName" id="productNavProductName">Fab Scrapwood Vase Large</h1>
+        <a class="floatRight moreInfoText" href="">View More Details</a>
+        <h2 class="productNavProductBy">
+          <span>by <span id="productNavProductBy">Found by Fab</span></span>
+        </h2>
+      </div>
+      <img width="692" height="692" id="poductNavImg" src="">
+      <div class="poductNavLeft" id="poductNavLeft"></div>
+      <div class="poductNavRight" id="poductNavRight"></div>
+      <div class="poductNavStatus hide" id="poductNavStatus" style="display: none;"></div>
+    </div>
+    <div class="floatLeft productDetails">
+      <div class="priceDetail">
+        <div class="priceDetailsAlign">
+          <div class="closeModal  fabShopSprite crossIconRight"></div>
+        <!-- span class="userCartCounter textHide floatRight" style="*margin-top:20px;">Cart List</span -->
+          <span class="priceCt">$155</span>
+          <span class="fabShopSprite fabTagBig"></span>
+          <span class="priceFab">fab</span>
+          <div class="retailPrice" id="poductNavRetailPriceCt"><span id="poductNavRetailPrice">$399</span> retail price</div>
+        </div>
+      </div>
+      <div class="sizeQuantity">
+        <ul class="prodBuyList">
+          <li style="margin: 0px 15px 0px 0px; display: none;" class="quantitySelBlock floatLeft" id="prodNavSizeWrap">
+            <em style="line-height:26px;height:26px" class="floatLeft marginRight5">Size</em>
+            <select class="def_select select_v1 marginRight5" id="prodNavSize">
+              <option selected="" value="">&ndash;</option>
+            </select>
+          </li>
+          <li style="margin:0" class="quantitySelBlock floatLeft">
+            <em style="line-height:26px;height:26px" class="floatLeft marginRight5">Quantity</em>
+            <select class="def_select select_v1 marginRight5" id="prodNavQuantity"><option value="1" selected="">1</option></select>
+          </li>
+        </ul>
+      </div>
+      <div class="clearBoth"></div>
+      <div class="prodNavAddToCartWrap">
+        <div class="clearBoth"></div>
+        <a class="fabSubmitBtn fabGrad borderR15 noShadow prodNavAddToCart" href="javascript:void(0)" id="prodNavAddToCart">
+          <span class="fabShopSprite cart_icon marginRight5"></span>Login to Buy
+        </a>
+        <span style="display:none" class="prodNavAddToCartLoader" id="prodNavAddToCartLoader">
+          <img src="//dnok91peocsw3.cloudfront.net/relaunch/ajax-loader-white.gif">
+        </span>
+        <span style="display:none" class="fabShopSprite grayTick " id="prodNavAddToCartSuccess">
+        </span>
+        <div class="clearBoth"></div>
+        <div class="marginTop6 fabText" id="prodNavMsg"></div>
+      </div>
+      <div class="suggestionCt">
+        <div class="vAlignBlk">
+          <h3 style="display: block;">You Might <em class="redText">Also Like</em> </h3>
+          <ul><div class="recommendation"><div class="imageCt floatLeft"><img width="90px" height="90px" src="//dnok91peocsw3.cloudfront.net/product/398928-300x300-1368210217-primary.png" data-sale-id="21497" data-prod-id="398928" data-context-id="home-accents" data-nav-context="fullscreen"></div><div class="vAlignBlk"><div class="infoCt floatLeft"><div class="productName">Matchboxes Collection Set Of 4</div><div class="price"><span class="fabPrice">$24</span><span class="fabShopSprite fabTagSml"></span><span class="recomendFabtxt">fab</span></div><div class="retailPrice hide"> retail price</div></div></div><div class="clearBoth"></div></div><div class="recommendation"><div class="imageCt floatLeft"><img width="90px" height="90px" src="//dnok91peocsw3.cloudfront.net/product/343314-300x300-1361903967-primary.png" data-sale-id="21800" data-prod-id="343314" data-context-id="home-accents" data-nav-context="fullscreen"></div><div class="vAlignBlk"><div class="infoCt floatLeft"><div class="productName">Amish Fire Tools</div><div class="price"><span class="fabPrice">$295</span><span class="fabShopSprite fabTagSml"></span><span class="recomendFabtxt">fab</span></div><div class="retailPrice hide"> retail price</div></div></div><div class="clearBoth"></div></div><div class="recommendation"><div class="imageCt floatLeft"><img width="90px" height="90px" src="//dnok91peocsw3.cloudfront.net/product/66274-300x300-1328301175-primary.png" data-sale-id="22105" data-prod-id="66274" data-context-id="home-accents" data-nav-context="fullscreen"></div><div class="vAlignBlk"><div class="infoCt floatLeft"><div class="productName">Ugmonk Ampersand Aluminum</div><div class="price"><span class="fabPrice">$32</span><span class="fabShopSprite fabTagSml"></span><span class="recomendFabtxt">fab</span></div><div class="retailPrice ">$58 retail price</div></div></div><div class="clearBoth"></div></div></ul>
+        </div>
+      </div>
+      <div class="prodNavFaveCt">
+        <span class="verticalAligner"></span>
+        <div class="prodNavFaveDesc" id="prodNavFaveDesc">
+          <h3 class="likeThisProduct">Click the heart!</h3>
+          <h2 class="addToFavorites">ADD TO FAVORITES </h2>
+        </div>
+        <span class="prodNavFaveImg fabShopSpriteNew" id="prodNavFaveImg"></span>
+        <span class="prodNavFaveNum" id="prodNavFaveNum">123</span>
+        <span class="prodNavFaveTxt" id="prodNavFaveTxt">&nbsp;faved this</span>
+      </div>
+      <ul class="socialLinks prodNavSocialLinks">
+        <li class="floatLeft">
+          <a title="Share on Twitter" href="javascript:void();" class="fabShopSprite twIconNew" id="prodNavTweet">Share on Twitter</a>
+        </li>
+        <li class="floatLeft">
+          <a title="Share on Facebook" href="javascript:void();" class="fabShopSprite fbIconNew" id="prodNavFBShare">Share on Facebook</a>
+        </li>
+        <li style="width: 48px !important;" class="floatLeft pinitIcon">
+          <a count-layout="horizontal" class="pin-it-button" href="javascript:void();" id="productNavPinIt">
+            <img border="0" title="Pin It" alt="Pin It" src="//assets.pinterest.com/images/PinExt.png">
+          </a>
+        </li>
+        <li style="max-width:90px;min-width:87px;" class="floatLeft fbLIkePlusIcon" id="prodNavLike"><fb:like allowtransparency="true" frameborder="0" scrolling="no" colorscheme="light" action="like" show-faces="false" layout="button_count" send="false" href="http://fab.com/sale/21047/product/133264?fref=fb-like" class="overflowHidden fb_edge_widget_with_comment fb_iframe_widget" fb-xfbml-state="rendered"><span style="height: 21px; width: 73px;"><iframe scrolling="no" id="f2230757dbfadee" name="f256d0a081580f2" style="border: medium none; overflow: hidden; height: 21px; width: 73px;" title="Like this content on Facebook." class="fb_ltr" src="http://www.facebook.com/plugins/like.php?api_key=105523866144321&amp;locale=en_US&amp;sdk=joey&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D24%23cb%3Df12c87fcbae6e78%26origin%3Dhttp%253A%252F%252Ffab.com%252Ff176e399b7a882a%26domain%3Dfab.com%26relation%3Dparent.parent&amp;href=http%3A%2F%2Ffab.com%2Fsale%2F21047%2Fproduct%2F133264%3Ffref%3Dfb-like&amp;node_type=link&amp;width=90&amp;layout=button_count&amp;colorscheme=light&amp;action=like&amp;show_faces=false&amp;send=false&amp;extended_social_context=false"></iframe></span></fb:like></li>
+        <li class="clearBoth"></li>
+      </ul>
+      <ul id="productNavDetails"></ul>
+    </div>
+    <div class="clearBoth"></div>
+  </div>
+</div>
+
+<div class="modal-bg blackModalBg" style="display: none;"></div>
+
+
+
+
+      <div style="display: none;" id="fsvInfo" class="overLayFullScrn round7">
+  <span class="fabShopSprite fullScrnBanerCross" alt="cross" title="Close "></span>
+  <h2 class="colorFFF font16">New! Browse Fab In Fullscreen.</h2>
+  <h3 class="font16">Click on the <span class="fScrIconSale fabShopSpriteNew"></span> icon in the top right corner of the product image to launch fullscreen mode.</h3>
+</div>
+
+
+
+      </li>
+    <% end %>
+<% end %>
+  

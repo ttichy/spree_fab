@@ -1,0 +1,92 @@
+<div class="poRel headerSection headerSection2">
+<div style="display: block;" id="divHeaderSection2a" class="">
+
+				<div id="fSearch" class="floatLeft">
+					<div class="light overflowHidden" id="fSearchBg">
+						<span class="fabShopSprite fSearchIcon"></span>
+
+					    <%= render :partial => 'spree/shared/search' %>
+
+						<span style="position:absolute;right: 9px; bottom: -1px; display: none;" id="filter_shop_name_loader">
+							<img src="//dnok91peocsw3.cloudfront.net/relaunch/ajax-loader-white.gif" alt="Loading...">
+						</span>
+						<span style="display: none;" id="stopSearch" class="fabShopSprite stopSearch displayNone poAbs"></span>
+					</div>
+					<ul style="display: none;" id="filter_shop_name_input_result" class="searchResults white displayNone"></ul>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+
+
+			<div style="display: none;" id="divHeaderSection2b" class="hide headerSection2b">
+				<ul style="margin-left: -550px;" id="leftNavToggle" class="floatLeft fabHeaderMenuLinks">
+
+					<li>
+						<a class="menuHomeIconContainer" href="/">
+						  <span class="fabShopSpriteNew newHomeIcon"></span>
+						  <br><br>
+						  <span style="line-height: 12px;display: inline-block;">Home</span>
+						</a>
+					</li>
+
+					    <li id="newArrivals" title="New" class="mbilAapIcon poRel hideOnSrch">
+					      <a style="line-height: 5px;height: 54px;width: 30px;padding:0 0.85em;text-align: center;" href="/new-arrivals/">
+					        <span class="fabShopSpriteNew newShopIcon"></span>
+					        <br><br>
+					        <span style="line-height: 12px;display: inline-block;">New</span>
+					      </a>
+					  	</li>
+
+						<li id="sale" title="Outlet" class="mbilAapIcon poRel  hideOnSrch ">
+							<a style="line-height: 5px;height: 54px;width: 34px;padding:0 0.85em;text-align: center;" href="/fab-outlet/">
+								<span class="fabShopSpriteNew newSaleIcon"></span>
+								<br><br>
+								<span style="line-height: 12px;display: inline-block;">
+									Outlet
+								</span>
+							</a>
+						</li>
+
+						<li id="livefeedNav" class="poRel hideOnSrch">
+							<a style="line-height: 17px;height: 54px;width: 42px;text-align: center;" href="/feed/" title="Live Feed">
+								<span class="newHeaderLiveFeedIcon textHide fabShopSprite"></span>
+								<br><br>
+								<span style="line-height: 17px;display: inline-block;">
+									Feed
+								</span>
+								<span class="liveFeedsNotificationNew round7 hide">0</span>
+							</a>
+						</li>
+
+					<li id="upcomingSaleLink" class="poRel hideOnSrch">
+						<a style="line-height: 17px;height: 54px;" class="upcomingSaleLink" href="/upcoming-sales/?tb=cs">
+							<span class="newHeaderCalenderIcon fabShopSprite"></span>
+							<br><br>
+							<span style="line-height: 17px;display: inline-block;">
+								Calendar
+							</span>
+						</a>
+					</li>
+
+					<li title="Smile" class="poRel  hideOnSrch ">
+						<a style="line-height: 5px;height: 54px;padding: 0 0.85em;" href="/smile/"><span class="smileHeaderImage fabShopSprite "></span><br><br><span style="line-height: 12px;display: inline-block;">Smile</span></a>
+					</li>
+
+					<li class="freeShipUpsellNew noBgOnHover poRel hideOnSrch" id="freeShipMsg">
+				          <a class="appDwnldBlkHead" href="/downloads/">
+				                <span class="floatLeft dB floatLeft freeShipBlkHeadIcon">
+				                  <span class="fabShopSprite newDownloadApp"></span>
+				                </span>
+				            <span class=" floatRight dB appDwnldBlkHeadText">Get the Fab Mobile App!</span>
+				          </a>
+					</li>
+
+				</ul>
+
+				<div class="clear"></div>
+			</div>
+
+	</div>
+	

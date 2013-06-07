@@ -1,0 +1,73 @@
+	
+  <div id="contentWrapper" class="false">
+    <div class="fabBorderSpace"></div>
+    <%=render :partial => 'product_header'%>
+    <div class="fabBlock" style="height:auto; padding-bottom:0;overflow: visible">
+      <div id="prodDet">
+        <div id ="product-images" class="prodLeftWrapper prodMidblock" style="clear: left">
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('#image1').addimagezoom({ // single image zoom
+            zoomrange: [4, 10],
+            magnifiersize: [580,355],
+            magnifierpos: 'right',
+            cursorshade: true,
+            largeimage: '<%= @product.images.first.attachment.url(:large)%>'
+          }) 
+    })
+     </script>
+          <div id="main-image" class="imgWrap filler" style="border: none !important;">
+              <span style="top:13px;" class="full_screen_icon fabShopSpriteNew" data-action="fullView"></span>
+              <img id="image1" border="0" src="<%= @product.images.first.attachment.url(:product)%>">
+          </div>
+          <p style="padding:13px 0 9px">More Images</p>
+          <div id="thumbnails" data-hook>
+          <%= render :partial => 'thumbnails' %>
+          </div>
+        </div>
+        <div class="prodWrapper" style="height:auto">
+          <div class="prodInfoBlock poRel">
+            <h1><%=@product.name %></h1>
+            <h2 class="prodCaption" style="*padding-bottom:30px;">by Globus America</h2>
+            <div class="prodInfo poRel">
+              <p style="padding:7px 0 18px 0;display:none;">
+                <a class="sale_ret_lnk" href="/sale/21077"  >
+                  <span class="fabShopSprite back_icon" style="margin-right:3px;line-height: 8px">&lt;</span>
+                  <span class="text_link">Return to Globus Habitats</span>
+                </a>
+              </p>
+              <p style="padding:7px 0 18px 0;"> &nbsp; </p>
+              <div id="prodFavCommHolder" class="poAbs" style="right:0;top:0;display:none;"></div>
+              <%= render :partial => 'cart_form' %>
+              <div style="padding:20px 0 0 0;height: 145px" class="desc">
+                <%= "#{product_description(@product).first(650)}..." rescue t(:product_has_no_description) %>
+              </div>
+              <!-- Product has standard shipping and no handling fee -->
+              <div class="freeShiping">
+                <span class="fabShopSpriteNew freeshipImg floatLeft"></span>
+                <strong class=" colorDD00 fontHelvatica font12 fontNr">FREE SHIPPING</strong>
+                on orders above
+                <strong class=" color000 fontHelvatica fontNr">$75</strong>
+
+                <a class="freeshiplearn" href="javascript:void(0)">Learn More</a>
+              </div>
+              <%= render :partial => 'properties' %>
+              <%= render :partial => 'shipping_info' %>              
+              <div class="fabSeal borderR5">
+                <span class="fabShopSprite fabSeal_icon"></span>We guarantee that Fab is authorized to sell this product and that 
+                <span style="color: #333333">every brand we sell is authentic</span>.
+              </div>
+
+              <%= render :partial => 'cart_form' %>
+              <div style="padding-bottom:25px"></div>
+            </div> <!-- prodinfo -->
+          </div> <!-- prodInfoBlock -->
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="height24"></div>
+
+
+  </div>
+  <div id="push" class="clear"></div>

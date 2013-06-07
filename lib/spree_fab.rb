@@ -1,3 +1,3 @@
 require 'spree_core'
-require 'spree_fancy/engine'
+require 'spree_fab/engine'
 require 'compass-rails'
