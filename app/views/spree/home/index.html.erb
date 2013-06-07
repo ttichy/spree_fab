@@ -1,39 +1,541 @@
-<% content_for :subheader do %>
-  <%= render 'slider' %>
-<% end %>
+<!-- <%# content_for :subheader do %>
+  <%#= render 'slider' %>
+<%# end %> -->
 
-<div id="welcome-message">
-  <div class="container">
-    <h1>
-      Welcome to our amazing store!
-      <br>
-      Choose <a href="/products">anything</a> you wish, we’ll ship it <a href="/shipping">anywhere!</a>
-    </h1>
+<div id= "contentWrapper" data-hook="homepage_products">
+	     <div class="f-mask"></div>
+  <div class="f-maskL"></div>
+  <div id="topFabBorderSpace" class="fabBorderSpace fixShopHeader" style="background-color: #fff;"></div>
+
+  <div id="search_bar_id" class="floatingHeader searchBarHeader ">
+  <div class="salefacebookbannerHeader">
+      <h3 class="searchTextDisplay floatLeft">
+              <storng id="brosweTextId">Home Accents</storng>
+              <span class="searchOpt clearAllFilter" style="display:none;"><span class="dropText" style="font-weight: normal; display: inline;"><a class="clearLinkCls" href="/browse/home-accents/">Clear All</a></span></span>
+      </h3>
+      <div class="searchTextDisplay floatRight sortTextDisplay">
+            <span class="showFiltersDisText" style="height: 36px; position: relative; top: 1px; display: inline !important;">
+              SHOW FILTERS <span class="fabShopSpriteNew filterSerachIcon showFilterIcon"></span>
+            </span>
+            <span class="hideFiltersDisText" style="height: 36px; position: relative; top: 1px; display: none;">
+              HIDE FILTERS <span class="fabShopSpriteNew filterSerachIcon hideFilterIcon"></span>
+            </span>
+            <span class="dIB vAm sortTextCls">SORT</span>
+            <div class="dIB positionRel noSelect sortDropDownWrap">
+              <span class="searchOpt sortDropDown"><span class="dropText" data-attr="relevance">Relevance</span>
+              <span class="fabShopSpriteNew dropIcon"></span></span>
+              <div style="display: none;" class="dropDownMenuD">
+                <ul>
+                      <li default-value="relevance" style="display:none;"><span data-attr="relevance">Relevance</span></li>
+                      <li style="display:block;"><span data-attr="price_low_to_high">Price - Low to High</span></li>
+                      <li style="display:block;"><span data-attr="price_high_to_low">Price - High to Low</span></li>
+                      <li style="display:block;"><span data-attr="most_popular">Most Popular</span></li>
+                      <li style="display:block;"><span data-attr="newest">Newest</span></li>
+                </ul>
+              </div>
+            </div>
+            <div id="glblFullScreenWin">
+              <span class="fabShopSpriteNew fullScreenIcon"></span>
+            </div>
+      </div>
+    <div class="clear"></div>
   </div>
 </div>
+<div id="searchPhantomDiv" style="min-height: 56px; height: 60px; background-color: rgb(255, 255, 255);"></div>
 
-<div class="container">
-  <% if @featured_products %>
-    <div id="featured-products" class="row">
-      <h3>Featured Products</h3>
-      <hr>
-      <ul class="carousel">
-        <% @featured_products.each do |product| %>
-          <%= render 'product', :product => product %>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="nav_filter_phantom_custom">
+  <ul class="nav_filter" id="nav_filter" style="visibility: visible; margin-top: 0px;">
+        <li class="nav_filter_category_collapsed">
+          <h2 class="nav_filter_head nav_filter_head_vert">Department
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+          </h2>
+        </li>
+        <li class="nav_filter_category hasFilters  hasOptions" id="nav_filter_department" style="width: 356px;">
+          <h2 class="nav_filter_head">
+                <span class="nav_department_header">Department</span>
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+                <span class="nav_filter_refine nav_filter_refine_horizontal">Refine Further</span>
+          </h2>
+          <div class="clear"></div>
+          <div class="navFilWrapBshadow">
+            <div class="nav_filter_wrap">
+                <ul class="nav_filter_selected department">
+                    <li class="selOptCnt_0">
+                      <div class="nav_filter_selected_option">
+                        <span title="Home" class="nav_filter_selected_option_txt">Home</span>
+                      </div>
+                    </li>
+                    <li class="selOptCnt_1">
+                      <div class="nav_filter_selected_option">
+                        <span title="Home Accessories" class="nav_filter_selected_option_txt">Home Accessories</span>
+                          <a class="nav_filter_remove fabShopSpriteNew" href="/browse/home/?sort=most_popular">X</a>
+                      </div>
+                        <span class="dept_dotted_joiner"></span>
+                    </li>
+                    <li class="selOptCnt_2">
+                      <div class="nav_filter_selected_option">
+                        <span title="Home Accents" class="nav_filter_selected_option_txt">Home Accents</span>
+                          <a class="nav_filter_remove fabShopSpriteNew" href="/browse/home-accessories/?sort=most_popular">X</a>
+                      </div>
+                        <span class="dept_dotted_joiner"></span>
+                    </li>
+                </ul>
 
-  <% if @latest_products %>
-    <div id="latest-products" class="row">
-      <h3>Latest Products</h3>
-      <hr>
-      <ul class="carousel">
-        <% @latest_products.each do |product| %>
-          <%= render 'product', :product => product %>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+                  <div class="nav_filter_refine nav_filter_refine_vertical">Refine Further</div>
+                <div class="nav_filter_options_wrap">
+                  <div class="nav_filter_options department" style="width: 1112px;">
+                    <ul class="nav_filter_options_ul">
+                            <li class="0">
+                              <a title="" href="/browse/clocks/?sort=most_popular" class="nav_filter_option">Clocks</a>
+                            </li>
+                            <li class="1">
+                              <a title="" href="/browse/wall-decors/?sort=most_popular" class="nav_filter_option">Wall Décors</a>
+                            </li>
+                            <li class="2">
+                              <a title="" href="/browse/candles/?sort=most_popular" class="nav_filter_option">Candles</a>
+                            </li>
+                            <li class="3">
+                              <a title="" href="/browse/decorative-figurines/?sort=most_popular" class="nav_filter_option">Decorative Figurines</a>
+                            </li>
+                            <li class="4">
+                              <a title="" href="/browse/vase-ceramics/?sort=most_popular" class="nav_filter_option">Vase Ceramics</a>
+                            </li>
+                            <li class="5">
+                              <a title="" href="/browse/taxidermy/?sort=most_popular" class="nav_filter_option">Taxidermy</a>
+                            </li>
+                        </ul>
+                        <ul class="nav_filter_options_ul">
+                            <li class="6">
+                              <a title="" href="/browse/ashtrays/?sort=most_popular" class="nav_filter_option">Ashtrays</a>
+                            </li>
+                            <li class="7">
+                              <a title="" href="/browse/baskets/?sort=most_popular" class="nav_filter_option">Baskets</a>
+                            </li>
+                            <li class="8">
+                              <a title="" href="/browse/bookends/?sort=most_popular" class="nav_filter_option">Bookends</a>
+                            </li>
+                            <li class="9">
+                              <a title="" href="/browse/candlesticks/?sort=most_popular" class="nav_filter_option">Candlesticks</a>
+                            </li>
+                            <li class="10">
+                              <a title="" href="/browse/ceramic-objects/?sort=most_popular" class="nav_filter_option">Ceramic Objects</a>
+                            </li>
+                            <li class="11">
+                              <a title="" href="/browse/coat-hooks/?sort=most_popular" class="nav_filter_option">Coat Hooks</a>
+                            </li>
+                        </ul>
+                        <ul class="nav_filter_options_ul">
+                            <li class="12">
+                              <a title="" href="/browse/coat-racks/?sort=most_popular" class="nav_filter_option">Coat Racks</a>
+                            </li>
+                            <li class="13">
+                              <a title="" href="/browse/coin-banks/?sort=most_popular" class="nav_filter_option">Coin Banks</a>
+                            </li>
+                            <li class="14">
+                              <a title="" href="/browse/curtains/?sort=most_popular" class="nav_filter_option">Curtains</a>
+                            </li>
+                            <li class="15">
+                              <a title="" href="/browse/decorative-bowls/?sort=most_popular" class="nav_filter_option">Decorative Bowls</a>
+                            </li>
+                            <li class="16">
+                              <a title="" href="/browse/decorative-containers/?sort=most_popular" class="nav_filter_option">Decorative Containers</a>
+                            </li>
+                            <li class="17">
+                              <a title="" href="/browse/decorative-plates/?sort=most_popular" class="nav_filter_option">Decorative Plates</a>
+                            </li>
+                        </ul>
+                        <ul class="nav_filter_options_ul">
+                            <li class="18">
+                              <a title="" href="/browse/display-boxes/?sort=most_popular" class="nav_filter_option">Display Boxes</a>
+                            </li>
+                            <li class="19">
+                              <a title="" href="/browse/door-stops/?sort=most_popular" class="nav_filter_option">Door Stops</a>
+                            </li>
+                            <li class="20">
+                              <a title="" href="/browse/fake-foods/?sort=most_popular" class="nav_filter_option">Fake Foods</a>
+                            </li>
+                            <li class="21">
+                              <a title="" href="/browse/fireplace-accessories/?sort=most_popular" class="nav_filter_option">Fireplace Accessories</a>
+                            </li>
+                            <li class="22">
+                              <a title="" href="/browse/fireplaces/?sort=most_popular" class="nav_filter_option">Fireplaces</a>
+                            </li>
+                            <li class="23">
+                              <a title="" href="/browse/flags/?sort=most_popular" class="nav_filter_option">Flags</a>
+                            </li>
+                        </ul>
+                        <ul class="nav_filter_options_ul">
+                            <li class="24">
+                              <a title="" href="/browse/flowers/?sort=most_popular" class="nav_filter_option">Flowers</a>
+                            </li>
+                            <li class="25">
+                              <a title="" href="/browse/glass-decorative-objects/?sort=most_popular" class="nav_filter_option">Glass Decorative Objects</a>
+                            </li>
+                            <li class="26">
+                              <a title="" href="/browse/hanging-frames/?sort=most_popular" class="nav_filter_option">Hanging Frames</a>
+                            </li>
+                            <li class="27">
+                              <a title="" href="/browse/hanging-mirrors/?sort=most_popular" class="nav_filter_option">Hanging Mirrors</a>
+                            </li>
+                            <li class="28">
+                              <a title="" href="/browse/holiday-decors/?sort=most_popular" class="nav_filter_option">Holiday Décors</a>
+                            </li>
+                            <li class="29">
+                              <a title="" href="/browse/home-fragrances/?sort=most_popular" class="nav_filter_option">Home Fragrances</a>
+                            </li>
+                        </ul>
+                        <ul class="nav_filter_options_ul">
+                            <li class="30">
+                              <a title="" href="/browse/indoor-planters/?sort=most_popular" class="nav_filter_option">Indoor Planters</a>
+                            </li>
+                            <li class="31">
+                              <a title="" href="/browse/jewelry-boxes/?sort=most_popular" class="nav_filter_option">Jewelry Boxes</a>
+                            </li>
+                            <li class="32">
+                              <a title="" href="/browse/key-holders/?sort=most_popular" class="nav_filter_option">Key Holders</a>
+                            </li>
+                            <li class="33">
+                              <a title="" href="/browse/large-reproduction-models/?sort=most_popular" class="nav_filter_option">Large Reproduction Models</a>
+                            </li>
+                            <li class="34">
+                              <a title="" href="/browse/magazine-racks/?sort=most_popular" class="nav_filter_option">Magazine Racks</a>
+                            </li>
+                            <li class="35">
+                              <a title="" href="/browse/metal-decorative-objects/?sort=most_popular" class="nav_filter_option">Metal Decorative Objects</a>
+                            </li>
+                        </ul>
+                        <ul class="nav_filter_options_ul">
+                            <li class="36">
+                              <a title="" href="/browse/plants/?sort=most_popular" class="nav_filter_option">Plants</a>
+                            </li>
+                            <li class="37">
+                              <a title="" href="/browse/plastic-decorative-object/?sort=most_popular" class="nav_filter_option">Plastic Decorative Object</a>
+                            </li>
+                            <li class="38">
+                              <a title="" href="/browse/signs/?sort=most_popular" class="nav_filter_option">Signs</a>
+                            </li>
+                            <li class="39">
+                              <a title="" href="/browse/small-reproduction-models/?sort=most_popular" class="nav_filter_option">Small Reproduction Models</a>
+                            </li>
+                            <li class="40">
+                              <a title="" href="/browse/sports-memorabilia/?sort=most_popular" class="nav_filter_option">Sports Memorabilia</a>
+                            </li>
+                            <li class="41">
+                              <a title="" href="/browse/terrariums/?sort=most_popular" class="nav_filter_option">Terrariums</a>
+                            </li>
+                        </ul>
+                        <ul class="nav_filter_options_ul">
+                            <li class="42">
+                              <a title="" href="/browse/trays/?sort=most_popular" class="nav_filter_option">Trays</a>
+                            </li>
+                            <li class="43">
+                              <a title="" href="/browse/vase-glasses/?sort=most_popular" class="nav_filter_option">Vase Glasses</a>
+                            </li>
+                            <li class="44">
+                              <a title="" href="/browse/vase-plastics/?sort=most_popular" class="nav_filter_option">Vase Plastics</a>
+                            </li>
+                            <li class="45">
+                              <a title="" href="/browse/wallpapers/?sort=most_popular" class="nav_filter_option">Wallpapers</a>
+                            </li>
+                            <li class="46">
+                              <a title="" href="/browse/wine-storage/?sort=most_popular" class="nav_filter_option">Wine Storage</a>
+                            </li>
+                            <li class="47">
+                              <a title="" href="/browse/wood-decorative-objects/?sort=most_popular" class="nav_filter_option">Wood Decorative Objects</a>
+                            </li>
+                    </ul>
+                  </div>
+                </div>
+                  <div class="nav_filter_more_toggle showMore num_48">
+                    <span class="txt">MORE</span>
+                    <span class="fabShopSpriteNew navFilDownArrowIcon"></span>
+                  </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav_filter_category_collapsed">
+          <h2 class="nav_filter_head nav_filter_head_vert">Rooms
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+          </h2>
+        </li>
+        <li class="nav_filter_category   hasOptions" id="nav_filter_rooms" style="width: 183px;">
+          <h2 class="nav_filter_head">
+                Rooms
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+          </h2>
+          <div class="clear"></div>
+          <div class="navFilWrapBshadow">
+            <div class="nav_filter_wrap">
+
+                <div class="nav_filter_options_wrap">
+                  <div class="nav_filter_options rooms">
+                    <ul class="nav_filter_options_ul">
+                            <li class="0">
+                              <a title="" href="/browse/home-accents/?attr[]=living&amp;sort=most_popular" class="nav_filter_option">Living</a>
+                            </li>
+                            <li class="1">
+                              <a title="" href="/browse/home-accents/?attr[]=bedroom&amp;sort=most_popular" class="nav_filter_option">Bedroom</a>
+                            </li>
+                            <li class="2">
+                              <a title="" href="/browse/home-accents/?attr[]=workspace&amp;sort=most_popular" class="nav_filter_option">Workspace</a>
+                            </li>
+                            <li class="3">
+                              <a title="" href="/browse/home-accents/?attr[]=outdoor&amp;sort=most_popular" class="nav_filter_option">Outdoor</a>
+                            </li>
+                            <li class="4">
+                              <a title="" href="/browse/home-accents/?attr[]=dining&amp;sort=most_popular" class="nav_filter_option">Dining</a>
+                            </li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav_filter_category_collapsed">
+          <h2 class="nav_filter_head nav_filter_head_vert">Designer
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+          </h2>
+        </li>
+        <li class="nav_filter_category   hasOptions" id="nav_filter_designer" style="width: 183px;">
+          <h2 class="nav_filter_head">
+                Designer
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+          </h2>
+          <div class="clear"></div>
+          <div class="navFilWrapBshadow">
+            <div class="nav_filter_wrap">
+
+                <div class="nav_filter_options_wrap">
+                  <div class="nav_filter_options designer" style="width: 278px;">
+                    <ul class="nav_filter_options_ul">
+                            <li class="0">
+                              <a title="" href="/browse/home-accents/?designer[]=michole-madden&amp;sort=most_popular" class="nav_filter_option">Michole Madden</a>
+                            </li>
+                            <li class="1">
+                              <a title="" href="/browse/home-accents/?designer[]=recycle-clocks&amp;sort=most_popular" class="nav_filter_option">reCycle Clocks</a>
+                            </li>
+                            <li class="2">
+                              <a title="" href="/browse/home-accents/?designer[]=areaware&amp;sort=most_popular" class="nav_filter_option">Areaware</a>
+                            </li>
+                            <li class="3">
+                              <a title="" href="/browse/home-accents/?designer[]=modern-alchemy&amp;sort=most_popular" class="nav_filter_option">Modern Alchemy</a>
+                            </li>
+                            <li class="4">
+                              <a title="" href="/browse/home-accents/?designer[]=chive&amp;sort=most_popular" class="nav_filter_option">Chive</a>
+                            </li>
+                            <li class="5">
+                              <a title="" href="/browse/home-accents/?designer[]=todd-newgren&amp;sort=most_popular" class="nav_filter_option">Todd Newgren</a>
+                            </li>
+                        </ul>
+                        <ul class="nav_filter_options_ul">
+                            <li class="6">
+                              <a title="" href="/browse/home-accents/?designer[]=vitra&amp;sort=most_popular" class="nav_filter_option">Vitra</a>
+                            </li>
+                            <li class="7">
+                              <a title="" href="/browse/home-accents/?designer[]=cardboard-safari&amp;sort=most_popular" class="nav_filter_option">Cardboard Safari</a>
+                            </li>
+                            <li class="8">
+                              <a title="" href="/browse/home-accents/?designer[]=babushka&amp;sort=most_popular" class="nav_filter_option">Babushka</a>
+                            </li>
+                            <li class="9">
+                              <a title="" href="/browse/home-accents/?designer[]=territory-hard-goods&amp;sort=most_popular" class="nav_filter_option">Territory Hard Goods</a>
+                            </li>
+                            <li class="10">
+                              <a title="" href="/browse/home-accents/?designer[]=the-modern-historic&amp;sort=most_popular" class="nav_filter_option">The Modern Historic</a>
+                            </li>
+                            <li class="11">
+                              <a title="" href="/browse/home-accents/?designer[]=bergino-baseball-clubhouse&amp;sort=most_popular" class="nav_filter_option">Bergino Baseball Clubhouse</a>
+                            </li>
+                    </ul>
+                  </div>
+                </div>
+                  <div data-base-url="/browse/home-accents/?sort=most_popular" data-more-url="/more_designer/?more_designers_key=c5ebf68205e0258f89c83226c80348ea" class="nav_filter_more_toggle showMore num_12">
+                    <span class="txt">MORE</span>
+                    <span class="fabShopSpriteNew navFilDownArrowIcon"></span>
+                  </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav_filter_category_collapsed" id="expand_collapsed_area_feature">
+          <h2 class="nav_filter_head nav_filter_head_vert">Featured
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+          </h2>
+        </li>
+        <li class="nav_filter_category   hasOptions" id="nav_filter_featured" style="width: 183px;">
+          <h2 class="nav_filter_head">
+                Featured
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+          </h2>
+          <div class="clear"></div>
+          <div class="navFilWrapBshadow">
+            <div class="nav_filter_wrap">
+
+                <div class="nav_filter_options_wrap special_6">
+                  <div class="nav_filter_options featured">
+                    <ul class="nav_filter_options_ul">
+                            <li class="0">
+                              <a title="" href="/browse/home-accents/?attr[]=vintage&amp;sort=most_popular" class="nav_filter_option">Vintage</a>
+                            </li>
+                            <li class="1">
+                              <a title="" href="/browse/home-accents/?attr[]=exclusively-fab&amp;sort=most_popular" class="nav_filter_option">Exclusively Fab</a>
+                            </li>
+                            <li class="2">
+                              <a title="" href="/browse/home-accents/?attr[]=fab-outlet&amp;sort=most_popular" class="nav_filter_option">Fab Outlet</a>
+                            </li>
+                            <li class="3">
+                              <a title="" href="/browse/home-accents/?attr[]=gifts&amp;sort=most_popular" class="nav_filter_option">Gifts</a>
+                            </li>
+                            <li class="4">
+                              <a title="" href="/browse/home-accents/?attr[]=most-popular&amp;sort=most_popular" class="nav_filter_option">Most Popular</a>
+                            </li>
+                            <li class="5">
+                              <a title="" href="/browse/home-accents/?attr[]=new-arrivals&amp;sort=most_popular" class="nav_filter_option">New Arrivals</a>
+                            </li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav_filter_category_collapsed collapsed" id="expand_collapsed_area_color">
+          <h2 class="nav_filter_head nav_filter_head_vert">Color
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+          </h2>
+        </li>
+        <li class="nav_filter_category   hasOptions collapsed" id="nav_filter_color">
+          <h2 class="nav_filter_head">
+                Color
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+          </h2>
+          <div class="clear"></div>
+          <div class="navFilWrapBshadow">
+            <div class="nav_filter_wrap">
+
+                <div class="nav_filter_options_wrap">
+                  <div class="nav_filter_options color">
+                    <ul class="nav_filter_options_ul">
+                            <li class="round5">
+                              <a data-color-name="white" href="/browse/home-accents/?color[]=white&amp;sort=most_popular" class="nav_filter_option round5 white">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="black" href="/browse/home-accents/?color[]=black&amp;sort=most_popular" class="nav_filter_option round5 black">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="silver" href="/browse/home-accents/?color[]=silver&amp;sort=most_popular" class="nav_filter_option round5 silver">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="multi" href="/browse/home-accents/?color[]=multi&amp;sort=most_popular" class="nav_filter_option round5 multi">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="brown" href="/browse/home-accents/?color[]=brown&amp;sort=most_popular" class="nav_filter_option round5 brown">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="red" href="/browse/home-accents/?color[]=red&amp;sort=most_popular" class="nav_filter_option round5 red">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="green" href="/browse/home-accents/?color[]=green&amp;sort=most_popular" class="nav_filter_option round5 green">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="blue" href="/browse/home-accents/?color[]=blue&amp;sort=most_popular" class="nav_filter_option round5 blue">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="gold" href="/browse/home-accents/?color[]=gold&amp;sort=most_popular" class="nav_filter_option round5 gold">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="yellow" href="/browse/home-accents/?color[]=yellow&amp;sort=most_popular" class="nav_filter_option round5 yellow">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="gray" href="/browse/home-accents/?color[]=gray&amp;sort=most_popular" class="nav_filter_option round5 gray">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="orange" href="/browse/home-accents/?color[]=orange&amp;sort=most_popular" class="nav_filter_option round5 orange">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="pink" href="/browse/home-accents/?color[]=pink&amp;sort=most_popular" class="nav_filter_option round5 pink">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                            <li class="round5">
+                              <a data-color-name="purple" href="/browse/home-accents/?color[]=purple&amp;sort=most_popular" class="nav_filter_option round5 purple">
+                                <!-- span class="nav_filter_remove fabShopSprite crossIconColorNav"></span -->
+                              </a>
+                            </li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav_filter_category_collapsed collapsed" id="expand_collapsed_area_price">
+          <h2 class="nav_filter_head nav_filter_head_vert">Price
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+          </h2>
+        </li>
+        <li class="nav_filter_category   hasOptions collapsed" id="nav_filter_price">
+          <h2 class="nav_filter_head">
+                Price
+            <span class="nav_filter_category_icon fabShopSpriteNew navFilPlusIcon"></span>
+          </h2>
+          <div class="clear"></div>
+          <div class="navFilWrapBshadow">
+            <div class="nav_filter_wrap">
+
+                <div class="nav_filter_options_wrap special_6">
+                  <div class="nav_filter_options price">
+                    <ul class="nav_filter_options_ul">
+                            <li class="0">
+                              <a title="" href="/browse/home-accents/?price[]=0.0-49.99&amp;sort=most_popular" class="nav_filter_option">$0.00-$49.99</a>
+                            </li>
+                            <li class="1">
+                              <a title="" href="/browse/home-accents/?price[]=50.0-99.99&amp;sort=most_popular" class="nav_filter_option">$50.00-$99.99</a>
+                            </li>
+                            <li class="2">
+                              <a title="" href="/browse/home-accents/?price[]=100.0-199.99&amp;sort=most_popular" class="nav_filter_option">$100.00-$199.99</a>
+                            </li>
+                            <li class="3">
+                              <a title="" href="/browse/home-accents/?price[]=200.0-499.99&amp;sort=most_popular" class="nav_filter_option">$200.00-$499.99</a>
+                            </li>
+                            <li class="4">
+                              <a title="" href="/browse/home-accents/?price[]=500.0-999.99&amp;sort=most_popular" class="nav_filter_option">$500.00-$999.99</a>
+                            </li>
+                            <li class="5">
+                              <a title="" href="/browse/home-accents/?price[]=1000.0-*&amp;sort=most_popular" class="nav_filter_option">$1,000.00+</a>
+                            </li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </li>
+    </ul>
 </div>
+
+<div class="nav_filter_phantom_horizontal" style="height:219px;display:none;"></div>
+
+<%= render :partial => 'spree/shared/products', :locals => { :products => @products } %>
+</div>
+<div id="push" class="clear"></div>
