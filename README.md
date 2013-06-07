@@ -1,28 +1,61 @@
-SpreeFancy
+SpreeFab
 ==========
 
-SpreeFancy is a theme that can be applied to an existing spree application. It's intended as a starting point to show how a barebones Spree application can be easily modified to give a nice look and feel. As a special bonus it uses a responsive design so looks good on mobile devices as well as on larger screens.
+SpreeFab also use SpreeFancy features in it.
 
-If you'd like to see the theme in action, you can register for your own personal [online sandbox](http://spreecommerce.com/demo) which uses the same theme.
+To install it first we need the basic spree app to be installed.
 
-Installation
-============
+Installation for Spree
+======================
 
-Themes in Spree are typically implemented as [Spree extensions](http://guides.spreecommerce.com/developer/extensions.html). To use the theme you will need an existing Spree application running Spree version 1.3 or higher. If you are unsure of how to do this you can find instructions on how to create a simple Spree application in the [Spree README](https://github.com/spree/spree).
-
-Once you have a rails application running Spree, it's a simple three step process to install the spree_fancy extension. 
-
-If you're using Spree 1.3, you will need to add the gem to your Gemfile using
-this line:
+Put these gems to your basic rails app:
 
 ```
-gem 'spree_fancy', :github => 'spree/spree_fancy', :branch => '1-3-stable'
+$ gem 'spree', '1.3.2'
+$ gem 'spree_gateway', :github => 'spree/spree_gateway', :branch => '1-3-stable'
+$ gem 'spree_auth_devise', :github => 'spree/spree_auth_devise', :branch => '1-3-stable'
 ```
 
-If you are using Spree's master branch, then use this line:
+Once you've done that, then you can install these gems using this command:
 
 ```
-gem 'spree_fancy', :github => 'spree/spree_fancy'
+$ bundle install
+```
+
+Use the install generator to set up Spree:
+
+```
+$ rails g spree:install
+```
+
+At this point, if you are using spree_auth_devise you will need to change this line in config/initializers/spree.rb:
+
+```
+$ Spree.user_class = "Spree::LegacyUser"
+```
+
+To this:
+
+```
+$ Spree.user_class = "Spree::User"
+```
+
+You can always perform the steps later by using these commands.
+
+```
+$ bundle exec rake db:migrate
+$ bundle exec rake db:seed
+$ bundle exec rake spree_sample:load
+```
+
+
+Installation for SpreeFab
+=========================
+
+Put this gem in your gem file:
+
+```
+$ gem 'spree_fab', :github => 'deepaktyagi3i36/spree_fab'
 ```
 
 Then install the gem via Bundler:
@@ -31,12 +64,14 @@ Then install the gem via Bundler:
 $ bundle install
 ```
 
-Finally, you need to run spree_fancy's installer:
+Finally, you need to run spree_fab's installer:
 
 ```
-$ bundle exec rails g spree_fancy:install
+$ bundle exec rails g spree_fab:install
 ```
-This copies over the migrations from the extension into your application, and sets up asset pipeline require statements for `spree_fancy`.
+
+
+This copies over the migrations from the extension into your application, and sets up asset pipeline require statements for `spree_fab`.
 
 Usage
 =====
