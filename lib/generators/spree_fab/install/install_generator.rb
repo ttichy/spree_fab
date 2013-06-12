@@ -19,7 +19,7 @@ module SpreeFab
       def add_directory
         directory 'app/assets/images/graphics', 'app/assets/images/graphics'
         directory 'app/assets/fonts', 'app/assets/fonts'
-        directory 'app/controllers/home_controller_decorator.rb', 'app/controllers/home_controller_decorator.rb'
+        create_file 'app/controllers/home_controller_decorator.rb', 'app/controllers/home_controller_decorator.rb'
         directory 'app/views/spree','app/views/spree'
       end
 
